@@ -1,0 +1,22 @@
+{
+  "name": "concurrent-tasks-runner",
+  "version": "0.0.1",
+  "description": "Concurrent/Parallel Tasks Runner",
+  "main": "./js/index.js",
+  "scripts": {},
+  "keywords": [
+    "Task",
+    "Runner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wchang28/concurrent-tasks-runner.git"
+  },
+  "author": "Wen Chang",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^6.0.46",
+    "@types/promise": "^7.1.30",
+    "promise": "^7.1.1"
+  }
+}
