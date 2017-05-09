@@ -1,6 +1,6 @@
 {
   "name": "concurrent-tasks-runner",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Concurrent/Parallel Tasks Runner",
   "main": "./js/index.js",
   "typings": "./js/index.d.ts",
@@ -16,8 +16,6 @@
   "author": "Wen Chang",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^6.0.46",
-    "@types/promise": "^7.1.30",
-    "promise": "^7.1.1"
+    "@types/node": "^6.0.73"
   }
 }

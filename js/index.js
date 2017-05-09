@@ -1,16 +1,22 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var events = require('events');
-var Promise = require('promise');
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var events = require("events");
 var Queue = (function (_super) {
     __extends(Queue, _super);
     function Queue() {
-        _super.call(this);
-        this.__queue = [];
+        var _this = _super.call(this) || this;
+        _this.__queue = [];
+        return _this;
     }
     Queue.prototype.addTasks = function (tasks) {
         if (tasks && tasks.length > 0) {
@@ -54,24 +60,24 @@ var Queue = (function (_super) {
 var ConcurrentTasksRunner = (function (_super) {
     __extends(ConcurrentTasksRunner, _super);
     function ConcurrentTasksRunner(taskRunner, maxConcurrent) {
-        var _this = this;
         if (maxConcurrent === void 0) { maxConcurrent = 2; }
-        _super.call(this);
-        this.taskRunner = taskRunner;
-        this.queue = new Queue();
+        var _this = _super.call(this) || this;
+        _this.taskRunner = taskRunner;
+        _this.queue = new Queue();
         if (!maxConcurrent || isNaN(maxConcurrent) || maxConcurrent < 1)
             maxConcurrent = 1;
-        this.maxConcurrent = maxConcurrent;
-        this.__available = this.maxConcurrent;
-        this.__completeResolve = null;
-        this.__running = false;
-        this.__stopping = false;
-        this.__completeCount = 0;
-        this.__taskCount = 0;
-        this.__startTime = null;
-        this.queue.on('enqueued', function () {
+        _this.maxConcurrent = maxConcurrent;
+        _this.__available = _this.maxConcurrent;
+        _this.__completeResolve = null;
+        _this.__running = false;
+        _this.__stopping = false;
+        _this.__completeCount = 0;
+        _this.__taskCount = 0;
+        _this.__startTime = null;
+        _this.queue.on('enqueued', function () {
             _this.dispatchIfNecessary();
         });
+        return _this;
     }
     ConcurrentTasksRunner.prototype.incrementAvailability = function () {
         this.__available++;

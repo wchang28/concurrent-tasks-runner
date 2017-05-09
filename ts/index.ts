@@ -1,5 +1,4 @@
 import * as events from 'events';
-import * as Promise from 'promise'; 
 
 export type TaskCompletionHandler = (err:any, data:any) => void;
 export interface ITaskRunner {
@@ -180,7 +179,7 @@ export class ConcurrentTasksRunner extends events.EventEmitter {
             this.__startTime = new Date();
             this.running = true;
             this.emit('start');
-            let p = new Promise((resolve: ResolveType, reject: RejectType) => {
+            let p = new Promise<any>((resolve: ResolveType, reject: RejectType) => {
                 this.__completeResolve = resolve;
             });
             p.then(() => {
